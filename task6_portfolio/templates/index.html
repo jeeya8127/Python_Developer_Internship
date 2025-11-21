@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Developer Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Jeeya Mishra</h1>
+        <p>Python Developer Intern | Flask & Data Analysis</p>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a Python enthusiast specializing in data manipulation using Pandas and building lightweight web applications with Flask. I am focused on creating efficient, maintainable, and scalable solutions for real-world problems. This site serves as a demonstration of my basic Flask routing and HTML/CSS skills.</p>
+            <h3>Skills</h3>
+            <ul>
+                <li>Python (Flask, Pandas, Matplotlib)</li>
+                <li>HTML & CSS</li>
+                <li>Data Analysis & Visualization</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form method="POST" action="{{ url_for('contact') }}">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br><br><br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <br><br><br>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Jeeya Mishra. All rights reserved.</p>
+    </footer>
+</body>
+</html>
